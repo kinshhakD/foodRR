@@ -1,0 +1,33 @@
+.food__sidebar{
+    // position: fixed;
+    padding-top: 50px;
+    min-height: 100vh;
+    width: 100px;
+    background: #F7E4BB;
+    
+    
+    .sidebar__block__item{
+        padding-left: 10px;
+        .active{
+            background: #ffffff;
+        }
+
+        .sidebar__item{
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+           
+           height: 90px;
+        }
+        .sidebar__button{
+           
+            height: 100%;
+            width: 100%;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }         
+    }
+  
+  
+
+}

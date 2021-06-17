@@ -1,0 +1,43 @@
+{
+    "Dishes":[{
+        "name": "",
+        "category":"",
+        "ingredients":[{
+            "ingredient": "",
+            "weight": ""
+        }],
+        "picture": ""
+    },{
+        "name": "",
+        "category":"",
+        "ingredients":[{
+            "ingredient": "",
+            "weight": ""
+        }],
+        "picture": ""
+    },{
+        "name": "",
+        "category":"",
+        "ingredients":[{
+            "ingredient": "",
+            "weight": ""
+        }],
+        "picture": ""
+    },{
+        "name": "",
+        "category":"",
+        "ingredients":[{
+            "ingredient": "",
+            "weight": ""
+        }],
+        "picture": ""
+    },{
+        "name": "",
+        "category":"",
+        "ingredients":[{
+            "ingredient": "",
+            "weight": ""
+        }],
+        "picture": ""
+    }]
+}
