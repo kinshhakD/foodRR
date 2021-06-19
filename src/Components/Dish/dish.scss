@@ -1,0 +1,31 @@
+.food__content__dish{
+    display: flex;
+    align-items: flex-end;
+
+    cursor: pointer;
+
+    height: 210px;
+    width: 350px;
+
+    margin-bottom: 40px;
+    margin-right: 40px;
+
+    border-radius: 30px;
+    background-color: rgba(255, 0, 0, 0.342);
+
+    img{
+        border-radius: 30px;
+        width: 100%;
+        height: 100%;
+    }
+
+ 
+
+    &-name{
+        position: absolute;
+        padding: 25px;
+        color: rgb(255, 255, 255);
+        font-size: 18px;
+    }
+
+}

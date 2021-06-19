@@ -1,0 +1,24 @@
+.food__content__header{
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3{
+        font-size: 36px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #EBC060;
+    }
+
+    &-add-image{
+        margin-right: 25px;
+        cursor: pointer;
+    }
+
+    span{
+        font-size: 24px;
+        color: #E6AF33;
+    }
+
+}   

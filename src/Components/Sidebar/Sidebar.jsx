@@ -13,9 +13,7 @@ const Sidebar = () => {
     const buttonsImage = [sideMenu, mainMenu, savedMenu];
 
     const [active, setActive] = useState(null);
-
-    const changeActiveClass = index => setActive(index);
-
+ 
     return (
         <div className='food__sidebar'>
             {
@@ -24,7 +22,7 @@ const Sidebar = () => {
                         <div className={classNames('sidebar__item', index === active ? 'active' : '')}>
                             <button
                                 className={classNames('sidebar__button')}
-                                onClick={() => changeActiveClass(index)}>
+                                onClick={() => setActive(index)}>
                                 <img src={image} />                     
                             </button>
                         </div>
