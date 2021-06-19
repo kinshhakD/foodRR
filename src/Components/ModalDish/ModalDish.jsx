@@ -5,7 +5,7 @@ import closeSvg from '../../assets/images/close.svg'
 
 import './modal.scss';
 
-const ModalDish = ({ name, picture, ingredients = [] }) => {
+const ModalDish = ({ name, picture, ingredients = [], back, onClick }) => {
 
 
     const [visibleRecipe, setVisibleRecipe] = useState(false)
@@ -14,8 +14,8 @@ const ModalDish = ({ name, picture, ingredients = [] }) => {
 
     return (
         <div className='food__modal'>
-            <div className="food__modal__image-block">
-                <img className='food__modal__image' src={picture} alt="" />
+            <div className="food__modal__image-block" style={{ background: `${back}` }}>
+                <img src={closeSvg} alt="" onClick={onClick} />
             </div>
             <div className="food__modal__content">
                 <div className="food__modal__content-container">
