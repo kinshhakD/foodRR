@@ -14,15 +14,20 @@ function App() {
 
   const [lists, setLists] = useState(null);
 
-  const toggleModal = (dish) => setActiveModal({ open: !isModal, dish })
+  const [selectedDish, setSelectedDish] = useState(null);
+
+  const toggleModal = (dish) => {
+    setSelectedDish(dish);
+    setActiveModal(!isModal);
+
+
+  }
 
   useEffect(() => {
-
     axios.get('http://localhost:3000/Dishes').then(({ data }) => {
       console.log(data)
       setLists(data)
     })
-
   }, [])
 
   return (
@@ -31,33 +36,25 @@ function App() {
       <div className="food__content">
         <Header />
         <div className='food__content__dishes'>
-          {/* {
-            data.Dishes.map(dish => (<Dish 
-              image={dish.picture}
-              name={dish.name}
-              key={dish.id}
-              onClick={() => toggleModal(dish)} />))
-          } */}
           {
             lists && lists.map((item) => (
-              <Dish name={item.name} key={item.id} onClick={() => toggleModal(item)} back={item.picture} />
+              <Dish name={item.name}
+                key={item.id}
+                onClick={() => toggleModal(item)}
+                back={item.picture} />
             ))
           }
-
-
-
         </div>
       </div>
-      <div className='food__content__modal' id='modal'>
+      <div className='food__content__modal'>
         {
           isModal && <ModalDish
-            name={isModal.dish.name}
-            picture={isModal.dish.picture}
-            ingredients={isModal.dish.ingredients}
-            back={isModal.dish.picture}
-            key={isModal.dish.id}
+            name={selectedDish.name}
+            ingredients={selectedDish.ingredients}
+            back={selectedDish.picture}
+            key={selectedDish.id}
             onClick={() => setActiveModal(!isModal)}
-            />
+          />
         }
       </div>
     </div>
