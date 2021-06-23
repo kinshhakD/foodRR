@@ -1,0 +1,76 @@
+
+.food__modal{
+    
+   &__new-input{
+    margin-bottom: 50px;
+    padding-right: 20px;
+
+   }
+   &__category{
+       margin-bottom: 40px; 
+   }
+
+   &__category-flex{
+       display: flex;
+       justify-content: space-between;
+    //    margin-bottom: 50px;
+   }
+
+   &__post__button{
+    position: absolute;
+    bottom: 40px;
+    left: 40%;
+   }
+
+   &__ingredients{
+       max-height: 200px;
+       overflow-y: auto;
+
+    ul{
+        padding: 0;
+
+        img{
+            width: 15px;
+            cursor: pointer;
+        }
+
+        li{
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+   }
+
+}
+
+
+
+.color__range__block{
+    padding: 100px;
+}
+
+.color__range{
+    display: flex;
+    justify-content: space-between;
+}
+
+.close__new__category-input{
+    width: 12px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.new__category-input{
+    margin-bottom: 30px;
+}
+
+.ingredients__input__button{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.new__input{
+    width: 100%;
+}

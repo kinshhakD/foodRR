@@ -1,4 +1,5 @@
 .food__content__dish{
+    position: relative;
     display: flex;
     align-items: flex-end;
 
@@ -13,13 +14,25 @@
     border-radius: 30px;
     background-color: rgba(255, 0, 0, 0.342);
 
+    // img{
+    //     border-radius: 30px;
+    //     width: 100%;
+    //     height: 100%;
+    // }
+
+  .food__remove__item{
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-top: 10px;
     img{
-        border-radius: 30px;
-        width: 100%;
-        height: 100%;
+        width: 20px;
+        margin-left: -8px;
     }
 
- 
+  }
 
     &-name{
         position: absolute;
