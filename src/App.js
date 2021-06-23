@@ -16,7 +16,7 @@ function App() {
 
   const [categoryList, setCategoryList] = useState(null);
 
-  useEffect(() => {
+  const fetchData = () => {
     axios.get('http://localhost:3000/Dishes').then(({ data }) => {
       setLists(data);
 
@@ -24,6 +24,10 @@ function App() {
 
       setCategoryList(setDataCategoryList());
     });
+  };
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   const postDish = (obj) => {
@@ -32,6 +36,7 @@ function App() {
 
       setLists(newList);
       setIsCreateDish(!isCreateDish);
+      fetchData();
     });
   };
 
@@ -99,7 +104,7 @@ function App() {
               onClose={() => setIsCreateDish(!isCreateDish)}
               categoryList={categoryList}
               onAddCategory={onAddCategory}
-              postForm={postDish}
+              postDish={postDish}
             />
           )
         }

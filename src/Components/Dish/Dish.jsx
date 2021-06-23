@@ -28,7 +28,7 @@ const Dish = ({
 Dish.propTypes = {
   onRemove: propTypes.func,
   name: propTypes.string,
-  rgba: propTypes.arrayOf(propTypes.number),
+  rgba: propTypes.array,
   onOpen: propTypes.func,
 };
 
