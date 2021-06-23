@@ -12,13 +12,17 @@ const Dish = ({
     className={classNames('food__content__dish')}
     onClick={onOpen}
   >
-    <button
-      onClick={onRemove}
-      type="button"
-      className="food__remove__item"
-    >
-      <img src={remove} alt="remove" />
-    </button>
+    {
+      onRemove && (
+      <button
+        onClick={onRemove}
+        type="button"
+        className="food__remove__item"
+      >
+        <img src={remove} alt="remove" />
+      </button>
+      )
+    }
     <div className="food__content__dish-name">
       <span>{name}</span>
     </div>

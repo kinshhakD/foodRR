@@ -16,6 +16,10 @@ function App() {
 
   const [categoryList, setCategoryList] = useState(null);
 
+  const [inputSearch, setInputSearch] = useState('');
+
+  const [searchList, setSearchList] = useState(lists);
+
   const fetchData = () => {
     axios.get('http://localhost:3000/Dishes').then(({ data }) => {
       setLists(data);
@@ -29,6 +33,11 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const resultSearch = lists.filter((item) => item.name.toLowerCase().includes(inputSearch));
+    setSearchList(resultSearch);
+  }, [inputSearch]);
 
   const postDish = (obj) => {
     axios.post('http://localhost:3000/Dishes', obj).then(() => {
@@ -68,6 +77,30 @@ function App() {
       <Sidebar />
       <div className="food__content">
         <Header onClick={openCreateDish} />
+        <div className="food__content__find">
+          <div className="find__input">
+            <input
+              type="text"
+              placeholder="Поиск..."
+              value={inputSearch}
+              onChange={(e) => setInputSearch(e.target.value)}
+            />
+          </div>
+          <div className="find__list__block">
+            {
+              searchList && searchList.map((item) => (
+                <Dish
+                  name={item.name}
+                  key={item.id}
+                  onOpen={() => openSelectedDish(item)}
+                  back={item.picture}
+                  rgba={item.rgba}
+                />
+              ))
+            }
+          </div>
+
+        </div>
         <div className="food__content__dishes">
           {
             lists.length && lists.map((item) => (
