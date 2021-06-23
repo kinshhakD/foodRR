@@ -44,7 +44,6 @@ function App() {
     e.stopPropagation();
     axios.delete(`http://localhost:3000/Dishes/${id}`).then(() => {
       const newList = lists.filter((item) => item.id !== id);
-
       setLists(newList);
     });
   };
@@ -61,7 +60,6 @@ function App() {
 
   const onAddCategory = (obj) => {
     const newCategory = [...categoryList, obj];
-
     setCategoryList(newCategory);
   };
 
