@@ -42,11 +42,28 @@
     margin-bottom: 40px;
     border: 0;
     background: transparent;
+    border-bottom: 1px solid grey;
+
+    &:focus{
+      outline: none;
+    }
+
    }
 
    .find__list__block{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+   }
+
+   img{
+     width: 20px;
+     cursor: pointer;
+     margin-left: 20px;
+   }
+
+   select{
+     margin-left: 50px;
+     width: 150px;
    }
 
 }

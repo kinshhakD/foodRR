@@ -6,6 +6,7 @@ import Header from './Components/Header/Header';
 import Sidebar from './Components/Sidebar/Sidebar';
 import ModalDish from './Components/ModalDish/ModalDish';
 import CreateDish from './Components/CreateDish/CreateDish';
+import closeSvg from './assets/images/close.svg';
 
 function App() {
   const [lists, setLists] = useState([]);
@@ -19,6 +20,8 @@ function App() {
   const [inputSearch, setInputSearch] = useState('');
 
   const [searchList, setSearchList] = useState(lists);
+
+  const [categorySearch, setCategorySearch] = useState('Все категории...');
 
   const fetchData = () => {
     axios.get('http://localhost:3000/Dishes').then(({ data }) => {
@@ -54,6 +57,7 @@ function App() {
     axios.delete(`http://localhost:3000/Dishes/${id}`).then(() => {
       const newList = lists.filter((item) => item.id !== id);
       setLists(newList);
+      fetchData();
     });
   };
 
@@ -85,14 +89,27 @@ function App() {
               value={inputSearch}
               onChange={(e) => setInputSearch(e.target.value)}
             />
+            <img src={closeSvg} alt="close" onClick={() => setInputSearch('')} />
+            <select
+              onChange={(e) => setCategorySearch(e.target.value)}
+              value={categorySearch}
+            >
+              <option>Все категории...</option>
+              {
+               categoryList
+               && categoryList.map((item) => (<option>{item}</option>))
+                }
+            </select>
+
           </div>
           <div className="find__list__block">
             {
-              searchList && searchList.map((item) => (
+              inputSearch && searchList.map((item) => (
                 <Dish
                   name={item.name}
                   key={item.id}
                   onOpen={() => openSelectedDish(item)}
+                  onRemove={(e) => onRemoveDish(e, item.id)}
                   back={item.picture}
                   rgba={item.rgba}
                 />
@@ -103,7 +120,16 @@ function App() {
         </div>
         <div className="food__content__dishes">
           {
-            lists.length && lists.map((item) => (
+            lists.length && categorySearch === 'Все категории...' ? lists.map((item) => (
+              <Dish
+                name={item.name}
+                key={item.id}
+                onRemove={(e) => onRemoveDish(e, item.id)}
+                onOpen={() => openSelectedDish(item)}
+                back={item.picture}
+                rgba={item.rgba}
+              />
+            )) : lists.filter((item) => item.category === categorySearch).map((item) => (
               <Dish
                 name={item.name}
                 key={item.id}
